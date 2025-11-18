@@ -72,21 +72,21 @@
       transform: translateY(-2px);
     }
 
-    /* Steam button with glow */
-    .steam-btn {
-      background-color: #00adef;
+    /* Navbar Steam Button (orange/red scheme) */
+    .steam-btn-navbar {
+      background-color: #ff4500;
       color: #fff;
       font-weight: bold;
       padding: 8px 15px;
       border-radius: 8px;
       transition: 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 0 8px #00adef;
+      box-shadow: 0 0 8px #ff4500;
     }
-    .steam-btn:hover {
-      background-color: #007bbf;
+    .steam-btn-navbar:hover {
+      background-color: #ff6e33;
       transform: translateY(-2px);
-      text-shadow: 0 0 6px #00adef;
-      box-shadow: 0 0 15px #00adef, 0 0 25px #00adef;
+      text-shadow: 0 0 6px #ff4500;
+      box-shadow: 0 0 15px #ff4500, 0 0 25px #ff4500;
     }
 
     @media (max-width: 800px) {
@@ -201,8 +201,7 @@
       <li><a href="#timeline">🕒 Timeline</a></li>
       <li><a href="#dev">🧑‍💻 Developer</a></li>
       <li><a href="#story">📘 Story</a></li>
-      <!-- Steam button always visible -->
-      <li><a href="https://store.steampowered.com/" target="_blank" class="steam-btn">🎮 Wishlist on Steam</a></li>
+      <li><a href="https://store.steampowered.com/" target="_blank" class="steam-btn-navbar">🎮 Wishlist on Steam</a></li>
     </ul>
   </div>
 </nav>
@@ -225,7 +224,7 @@
 <section id="zones" class="fade-section">
   <h2>The Three Radiation Zones</h2>
   <div class="zones-grid">
-    <div class="card fringe"><h3>The Fringe</h3><p>Low–Moderate threat. Home to Lurkers, Wailers, and Shrieker.</p></div>
+    <div class="card fringe"><h3>The Fringe</h3><p>Low–Moderate threat. Home to Lurkers, Shrieker, and Wailers.</p></div>
     <div class="card deadlight"><h3>Deadlight Fields</h3><p>High threat. Home to Striders, Bleachers, Sirens, and The Choir.</p></div>
     <div class="card core"><h3>The Core</h3><p>Maximum threat. Home to Revenants, Cradleborn, and Dr. Kryne.</p></div>
   </div>
@@ -264,27 +263,25 @@
   <p>Players take on the role of <strong>Alex Rainer</strong>, searching for his sister, Dr. Elara Rainer, who vanished after the Helix virus mutated following the nuclear plant explosion.</p>
   
   <h3>The Fringe – Survival’s Edge</h3>
-  <p>Alex begins in the Fringe, learning basic survival, scavenging, crafting, and combat against early-stage Echoforms like Lurkers, Wailers, and Shrieker. The environment is dark, dangerous, and full of abandoned structures hiding clues to the virus’s origin.</p>
+  <p>Alex begins in the Fringe, learning basic survival, scavenging, crafting, and combat against early-stage Echoforms: <strong>Lurkers, Shrieker, Wailers</strong>. The environment is dark, dangerous, and full of abandoned structures hiding clues to the virus’s origin. Players must gather resources, craft basic weapons, and survive the initial threats.</p>
   
   <h3>Deadlight Fields – The Heart of Mutation</h3>
-  <p>In the Deadlight Fields, radiation spikes are extreme. Striders and Bleachers roam open zones, while Sirens and The Choir manipulate sound to confuse and disorient. Alex must navigate crumbling labs, irradiated forests, and collapsed towns to gather critical research data and uncover the failings of Project Helix.</p>
+  <p>In the Deadlight Fields, radiation spikes are extreme. Echoforms here include <strong>Striders, Bleachers, Sirens, and The Choir</strong>. Alex must navigate crumbling labs, irradiated forests, and collapsed towns to gather research data. Environmental hazards and adaptive enemies challenge the player’s resourcefulness and combat skills.</p>
   
   <h3>The Core – Confronting Kryne</h3>
-  <p>The Core is the origin of the Helix mutation. Alex confronts Dr. Kryne, who has become a hybrid Echoform. Extreme radiation, unstable terrain, and deadly traps challenge the player. Choices here determine multiple endings, balancing morality, survival, and uncovering the truth.</p>
+  <p>The Core is the origin of the Helix mutation. Alex faces <strong>Revenants, Cradleborn, and the mutated Dr. Kryne</strong>. Extreme radiation, unstable terrain, and deadly traps push the player to their limits. Choices here determine multiple endings: morality, survival, and uncovering the truth of Project Helix. This section includes detailed environmental storytelling, hidden logs, and the climax of Alex’s journey. The Core emphasizes strategy, puzzle-solving, and the ultimate confrontation with the mutated mastermind behind the virus.</p>
 
   <div class="note-box">
     Note: Echoforms retain fragments of their past, forcing Alex to choose between mercy and survival.
   </div>
 
   <h3>The Emotional Journey</h3>
-  <p>Journals, recordings, and environmental storytelling immerse players in a tragic yet compelling world, emphasizing consequences of unchecked ambition, human resilience, and the haunting echoes of the failed cure.</p>
+  <p>Journals, recordings, and environmental storytelling immerse players in a tragic yet compelling world, emphasizing consequences of unchecked ambition, human resilience, and the haunting echoes of the failed cure. Every choice, from minor encounters to the final confrontation, reflects on humanity’s struggle against the Helix virus and the ethical dilemmas of scientific advancement.</p>
 </section>
 
 <footer>
   <p>© 2025 Radfall Development</p>
-  <p id="easter-egg" class="steam-btn">🎁 Tap Me!</p>
-  <!-- always-visible Steam link -->
-  <p><a href="https://store.steampowered.com/" target="_blank" class="steam-btn">🎮 Wishlist on Steam</a></p>
+  <p id="easter-egg">🎁 Tap Me!</p>
 </footer>
 
 <script>
@@ -309,7 +306,7 @@
   }, {threshold: 0.2});
   sections.forEach(section => observer.observe(section));
 
-  // Easter egg click to Steam
+  // Footer easter egg click to Steam
   const easter = document.getElementById('easter-egg');
   easter.addEventListener('click', () => {
     window.open('https://store.steampowered.com/', '_blank');
