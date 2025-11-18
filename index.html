@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Radfall Discription</title>
+  <title>Radfall – Behind the Code</title>
   <style>
     html { scroll-behavior: smooth; }
     body {
@@ -13,7 +13,7 @@
       margin: 0;
       padding: 0;
       line-height: 1.6;
-      cursor: url('cursor.png'), auto;
+      cursor: auto;
     }
     h1, h2, h3 { color: #ff4500; }
 
@@ -31,22 +31,22 @@
     .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: auto; }
     .logo { color: #ff4500; font-size: 1.6rem; font-weight: bold; text-shadow: 0 0 6px #ff4500; }
     .menu-toggle { display: none; font-size: 1.8rem; cursor: pointer; color: #ffae72; }
-    nav ul { list-style: none; padding: 0; margin: 0; display: flex; justify-content: center; gap: 35px; }
-    
+    nav ul { list-style: none; padding: 0; margin: 0; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+
     nav ul li a {
       position: relative;
-      display: inline-flex;       
-      align-items: center;        
-      gap: 6px;                   
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       color: #ffae72;
       text-decoration: none;
       font-weight: bold;
       font-size: 1.05rem;
-      padding: 6px 10px;          
+      padding: 6px 10px;
       border-radius: 6px;
       transition: 0.3s ease, text-shadow 0.3s ease, transform 0.2s ease;
     }
-    
+
     nav ul li a::after {
       content: "";
       position: absolute;
@@ -60,8 +60,11 @@
       transform-origin: left;
       transition: transform 0.3s ease;
     }
-    
-    nav ul li a:hover::after { transform: scaleX(1); }
+
+    nav ul li a:hover::after {
+      transform: scaleX(1);
+    }
+
     nav ul li a:hover {
       background-color: rgba(255,69,0,0.12);
       color: #ffffff;
@@ -69,10 +72,28 @@
       transform: translateY(-2px);
     }
 
+    /* Steam button with glow */
+    .steam-btn {
+      background-color: #00adef;
+      color: #fff;
+      font-weight: bold;
+      padding: 8px 15px;
+      border-radius: 8px;
+      transition: 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 8px #00adef;
+    }
+    .steam-btn:hover {
+      background-color: #007bbf;
+      transform: translateY(-2px);
+      text-shadow: 0 0 6px #00adef;
+      box-shadow: 0 0 15px #00adef, 0 0 25px #00adef;
+    }
+
     @media (max-width: 800px) {
       .menu-toggle { display: block; }
-      .nav-links { display: none; flex-direction: column; background: rgba(0,0,0,0.7); padding: 20px; }
+      .nav-links { display: none; flex-direction: column; background: rgba(0,0,0,0.7); padding: 20px; width: 100%; }
       .nav-links.active { display: flex; }
+      nav ul { flex-direction: column; gap: 15px; }
     }
 
     /* Hero */
@@ -88,7 +109,8 @@
     .hero h1 { font-size: 3rem; }
     .hero p { font-size: 1.2rem; max-width: 700px; margin: 10px auto; }
 
-    section { padding: 40px 20px; max-width: 1100px; margin: auto; border-radius: 12px; }
+    section { padding: 40px 20px; max-width: 1100px; margin: auto; border-radius: 12px; opacity: 0; transition: opacity 1s ease; }
+    section.visible { opacity: 1; }
 
     /* Zones and Bestiary */
     .bestiary-grid, .zones-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
@@ -137,6 +159,12 @@
     }
 
     footer { text-align: center; padding: 20px; background-color: #111; border-top: 2px solid #ff4500; }
+    #easter-egg {
+      cursor: pointer;
+      color: #00adef;
+      font-weight: bold;
+      margin-top: 10px;
+    }
 
     /* Section backgrounds */
     #world { background: linear-gradient(120deg, #0f0f0f, #1a1a1a); }
@@ -154,10 +182,6 @@
       background: #0d0d0d; color: #ff4500; display: flex; align-items: center; justify-content: center;
       font-size: 2rem; z-index: 2000;
     }
-
-    /* Fade in/out */
-    .fade-section { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
-    .fade-section.visible { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 <body>
@@ -169,20 +193,20 @@
     <div class="logo">☢ RADFALL</div>
     <div class="menu-toggle">☰</div>
     <ul class="nav-links">
-      <li><a href="#hero"> Home</a></li>
-      <li><a href="#world"> World</a></li>
-      <li><a href="#engine"> Unreal</a></li>
-      <li><a href="#zones"> Zones</a></li>
-      <li><a href="#bestiary"> Echoforms</a></li>
-      <li><a href="#features"> Features</a></li>
-      <li><a href="#timeline"> Timeline</a></li>
-      <li><a href="#dev">‍ Developer</a></li>
-      <li><a href="#story"> Story</a></li>
+      <li><a href="#hero">🏠 Home</a></li>
+      <li><a href="#world">🌍 World</a></li>
+      <li><a href="#engine">💻 Unreal</a></li>
+      <li><a href="#zones">⚠️ Zones</a></li>
+      <li><a href="#features">✨ Features</a></li>
+      <li><a href="#timeline">🕒 Timeline</a></li>
+      <li><a href="#dev">🧑‍💻 Developer</a></li>
+      <li><a href="#story">📘 Story</a></li>
+      <li><a href="https://store.steampowered.com/" target="_blank" class="steam-btn">🎮 Click Me</a></li>
     </ul>
   </div>
 </nav>
 
-<header class="hero fade-section" id="hero">
+<header class="hero" id="hero">
   <h1>Radfall</h1>
   <p>A world reshaped by a mutated cure — where humanity became the Echoforms.</p>
 </header>
@@ -203,22 +227,6 @@
     <div class="card fringe"><h3>The Fringe</h3><p>Low–Moderate threat. Home to Lurkers, Wailers, and Shrieker.</p></div>
     <div class="card deadlight"><h3>Deadlight Fields</h3><p>High threat. Home to Striders, Bleachers, Sirens, and The Choir.</p></div>
     <div class="card core"><h3>The Core</h3><p>Maximum threat. Home to Revenants, Cradleborn, and Dr. Kryne.</p></div>
-  </div>
-</section>
-
-<!-- Echoform Bestiary section re-added -->
-<section id="bestiary" class="fade-section">
-  <h2>Echoform Bestiary</h2>
-  <div class="bestiary-grid">
-    <div class="card"><h3>Lurker</h3><p>Silent, hides in shadows, watches before attacking.</p></div>
-    <div class="card"><h3>Shrieker</h3><p>Emits piercing cries that attract others.</p></div>
-    <div class="card"><h3>Wailer</h3><p>Twisted, painful screams; avoids light.</p></div>
-    <div class="card"><h3>Bleacher</h3><p>Bodies bleached white from high radiation levels.</p></div>
-    <div class="card"><h3>Strider</h3><p>Long-limbed, fast, hunts in packs.</p></div>
-    <div class="card"><h3>Sirens</h3><p>Use sound manipulation to disorient players.</p></div>
-    <div class="card"><h3>The Choir</h3><p>A group Echoform that screams in harmony.</p></div>
-    <div class="card"><h3>Revenant</h3><p>Highly intelligent, remembers parts of its past.</p></div>
-    <div class="card"><h3>Cradleborn</h3><p>Born directly from Core radiation.</p></div>
   </div>
 </section>
 
@@ -247,46 +255,33 @@
 
 <section id="dev" class="fade-section">
   <h2>About the Developer</h2>
-  <p>Radfall is created by Jack McLean and Riley Field, a duo developer team using Unreal Engine and focusing entirely on Blueprint-based systems.</p>
+  <p>Radfall is created by Jack, a solo developer using Unreal Engine and focusing entirely on Blueprint-based systems.</p>
 </section>
 
 <section id="story" class="fade-section">
   <h2>The Core Story</h2>
-  <p>Players embody <strong>Alex Rainer</strong>, a lone survivor in a world shattered by Project Helix. The nuclear plant explosion of 2029 mutated what was meant to be humanity's salvation — a cure to slow aging — into a relentless virus. Humans were transformed into Echoforms, distorted echoes of their former selves, trapped between memory and monstrosity. Alex’s sister, Dr. Elara Rainer, vanished amidst the chaos, leaving Alex with a desperate mission: uncover the truth, navigate a hostile world, and confront the source of the mutation.</p>
-
+  <p>Players take on the role of <strong>Alex Rainer</strong>, searching for his sister, Dr. Elara Rainer, who vanished after the Helix virus mutated following the nuclear plant explosion.</p>
+  
   <h3>The Fringe – Survival’s Edge</h3>
-  <p>The journey begins in the Fringe, a borderland of low-to-moderate radiation, where nature slowly reclaims abandoned settlements. Cracked highways, rusted vehicles, and derelict homes hint at the civilization that once thrived. Alex must master survival — scavenging for limited food and water, improvising weapons, and crafting basic tools. Early Echoforms, such as Lurkers, Shriekers, and Wailers, challenge every move. Lurkers silently observe from shadows, Shriekers’ ear-piercing cries summon reinforcements, and Wailers’ anguished screams can disorient even the most alert. Through environmental storytelling — graffiti notes, scattered journals, and remnants of families — the player learns about the fragility of life and the creeping dread of the virus.</p>
-
+  <p>Alex begins in the Fringe, learning basic survival, scavenging, crafting, and combat against early-stage Echoforms like Lurkers, Wailers, and Shrieker. The environment is dark, dangerous, and full of abandoned structures hiding clues to the virus’s origin.</p>
+  
   <h3>Deadlight Fields – The Heart of Mutation</h3>
-  <p>As Alex moves deeper, the Deadlight Fields reveal the true cost of the Helix virus. Highly irradiated craters, twisted metal landscapes, and collapsed research facilities dominate the terrain. Striders stalk with terrifying speed, Bleachers show the toll of radiation on the human body, Sirens manipulate sound to confuse intruders, and The Choir attacks with coordinated, haunting vocalizations. Alex discovers the failed experiments of Project Helix, including containment failures and the ethical compromises of scientists blinded by ambition. Every exploration demands calculated risk: exposure to radiation might yield vital supplies, but every choice carries consequences. In this zone, the narrative deepens — Alex finds recordings of panic-stricken researchers, cries for help frozen in time, and clues to his sister’s fate.</p>
-
+  <p>In the Deadlight Fields, radiation spikes are extreme. Striders and Bleachers roam open zones, while Sirens and The Choir manipulate sound to confuse and disorient. Alex must navigate crumbling labs, irradiated forests, and collapsed towns to gather critical research data and uncover the failings of Project Helix.</p>
+  
   <h3>The Core – Confronting Kryne</h3>
-  <p>The Core is a crucible of extreme radiation and mutation. The once state-of-the-art nuclear plant now stands as a ruinous monument, corridors warped by explosions, and corridors flooded with radioactive mist. Here, Alex confronts Dr. Nathaniel Kryne, the original architect of Project Helix, transformed into a powerful Echoform, both human and monstrous. Survival requires mastering environmental hazards, radiation exposure, and elite Echoforms such as Revenants — intelligent, relentless predators — and Cradleborn, born directly from Core radiation. Every encounter is a test of both skill and morality. Decisions here are permanent, shaping multiple endings — redemption, tragedy, or compromise. The Core’s narrative is both external and internal: Alex must reconcile his own humanity with the horrors around him.</p>
+  <p>The Core is the origin of the Helix mutation. Alex confronts Dr. Kryne, who has become a hybrid Echoform. Extreme radiation, unstable terrain, and deadly traps challenge the player. Choices here determine multiple endings, balancing morality, survival, and uncovering the truth.</p>
 
   <div class="note-box">
-    Note: Echoforms retain fragments of their past, presenting ethical dilemmas. Will Alex show mercy, or will survival override morality? Every choice leaves a lasting impact.
+    Note: Echoforms retain fragments of their past, forcing Alex to choose between mercy and survival.
   </div>
 
   <h3>The Emotional Journey</h3>
-  <p>Radfall is an emotional odyssey, not just a survival game. Environmental storytelling is pervasive: abandoned toys in the Fringe, fragmented holographic logs in Deadlight Fields, and twisted laboratory remnants in the Core paint a haunting picture of what was lost. Audio cues, visual design, and scattered documents immerse the player in a world where hope is fragile and danger is constant. Alex’s relationship with his sister’s memory drives the narrative, creating tension, empathy, and a sense of purpose. The player experiences both the terror of facing mutated Echoforms and the sorrow of witnessing what humanity sacrificed for ambition.</p>
-
-  <h3>Encounter Highlights</h3>
-  <p>Throughout the journey, each Echoform type tells a story:</p>
-  <ul>
-    <li><strong>Lurkers:</strong> Observe and learn; their cautious behavior reflects the survivors they once were.</li>
-    <li><strong>Shriekers:</strong> Their cries are both a weapon and a warning, representing panic and fear frozen in mutation.</li>
-    <li><strong>Wailers:</strong> Their pain resonates through the environment, embodying the suffering caused by Helix.</li>
-    <li><strong>Striders:</strong> Agile predators, reminding Alex of the relentless evolution of danger.</li>
-    <li><strong>Bleachers:</strong> Reminders of radiation’s toll on flesh, both tragic and terrifying.</li>
-    <li><strong>Sirens & The Choir:</strong> Collective echoes of humanity, twisted into coordinated horror.</li>
-    <li><strong>Revenants & Cradleborn:</strong> Represent apex corruption of the virus, intelligent yet deadly.</li>
-  </ul>
-
-  <h3>The Finale</h3>
-  <p>In the Core, Alex faces his greatest test: reconciling the remnants of his sister’s research with the reality of the Helix virus. His actions determine not only his survival but the potential to restore fragments of humanity or condemn the world to permanent mutation. The narrative emphasizes cause and effect, ensuring players feel the weight of every decision and the lingering consequences of ambition, desperation, and hope.</p>
+  <p>Journals, recordings, and environmental storytelling immerse players in a tragic yet compelling world, emphasizing consequences of unchecked ambition, human resilience, and the haunting echoes of the failed cure.</p>
 </section>
+
 <footer>
   <p>© 2025 Radfall Development</p>
+  <p id="easter-egg">🎁 Tap Me!</p>
 </footer>
 
 <script>
@@ -298,15 +293,24 @@
   // Loading screen
   window.addEventListener('load', () => document.getElementById('loadingScreen').style.display = 'none');
 
-  // Fade-in/out on scroll
-  const fadeSections = document.querySelectorAll('.fade-section');
+  // Fade in/out sections on scroll
+  const sections = document.querySelectorAll('.fade-section');
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      if(entry.isIntersecting){ entry.target.classList.add('visible'); }
-      else{ entry.target.classList.remove('visible'); }
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+      } else {
+        entry.target.classList.remove('visible');
+      }
     });
-  }, { threshold: 0.1 });
-  fadeSections.forEach(section => observer.observe(section));
+  }, {threshold: 0.2});
+  sections.forEach(section => observer.observe(section));
+
+  // Easter egg click to Steam
+  const easter = document.getElementById('easter-egg');
+  easter.addEventListener('click', () => {
+    window.open('https://store.steampowered.com/', '_blank');
+  });
 </script>
 
 </body>
